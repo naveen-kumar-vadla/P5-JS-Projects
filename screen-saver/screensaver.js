@@ -13,7 +13,7 @@ let g;
 let b;
 
 const color_range = 10;
-const range = 2;
+const range = 5;
 const width = 1780;
 const height = 970;
 

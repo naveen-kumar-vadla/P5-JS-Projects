@@ -12,7 +12,8 @@ let r;
 let g;
 let b;
 
-const range = 20;
+const color_range = 10;
+const range = 2;
 const width = 1780;
 const height = 970;
 
@@ -44,9 +45,9 @@ function setup() {
 
 function pick_random_color() {
   // pick a new color
-  r += random(-range, range);
-  g += random(-range, range);
-  b += random(-range, range);
+  r += random(-color_range, color_range);
+  g += random(-color_range, color_range);
+  b += random(-color_range, color_range);
 
   r = constrain(r, 0, 255);
   g = constrain(g, 0, 255);

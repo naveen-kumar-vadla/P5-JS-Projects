@@ -22,14 +22,14 @@ let width;
 let height;
 
 function setup() {
+  width=displayWidth - 100;
+  height=displayHeight - 200;
+
   scoreElem = createDiv('Score = 0');
-  scoreElem.position(width - 200, 20);
+  scoreElem.position(width, 20);
   scoreElem.id = 'score';
   scoreElem.style('color', 'white');
   scoreElem.style('fontSize', '25px');
-
-  width=displayWidth - 100;
-  height=displayHeight - 200;
 
   createCanvas(width, height);
   frameRate(15);

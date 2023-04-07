@@ -1,10 +1,12 @@
 const dots = [];
 const border = 20;
 
-const width = 1780;
-const height = 970;
+let width;
+let height;
 
 function setup() {
+  width=displayWidth;
+  height=displayHeight;
   createCanvas(width, height);
 
   goBackButton = createButton('Back');

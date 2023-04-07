@@ -18,8 +18,8 @@ let xFruit = 0;
 let yFruit = 0;
 let scoreElem;
 
-const width = 1780;
-const height = 970;
+let width;
+let height;
 
 function setup() {
   goBackButton = createButton('Back');
@@ -34,6 +34,8 @@ function setup() {
   scoreElem.style('color', 'white');
   scoreElem.style('fontSize', '25px');
 
+  width=displayWidth;
+  height=displayHeight;
   createCanvas(width, height);
   frameRate(15);
   stroke(255);

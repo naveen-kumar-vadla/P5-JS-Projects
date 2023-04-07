@@ -4,10 +4,12 @@ let minutesRadius;
 let hoursRadius;
 let clockDiameter;
 
-const width = 1780;
-const height = 970;
+let width;
+let height;
 
 function setup() {
+  width=displayWidth;
+  height=displayHeight;
   createCanvas(width, height);
   stroke(255);
 

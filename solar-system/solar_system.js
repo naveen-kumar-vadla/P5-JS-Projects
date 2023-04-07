@@ -6,8 +6,8 @@ const WHITE = '#FFFFFF';
 const ALPHA = 40;
 const STAR_SPEED = 1;
 
-const width = 1780;
-const height = 970;
+let width;
+let height;
 
 class Position {
   constructor(x, y) {
@@ -167,6 +167,8 @@ class Sun {
 }
 
 function setup() {
+  width=displayWidth;
+  height=displayHeight;
   createCanvas(width, height);
   goBackButton = createButton('Back');
   goBackButton.position(20, 20);

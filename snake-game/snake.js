@@ -22,12 +22,6 @@ let width;
 let height;
 
 function setup() {
-  goBackButton = createButton('Back');
-  goBackButton.position(20, 20);
-  goBackButton.id = 'goBack';
-  goBackButton.mousePressed(() => window.history.go(-1));
-  goBackButton.style('cursor', 'pointer');
-
   scoreElem = createDiv('Score = 0');
   scoreElem.position(width - 200, 20);
   scoreElem.id = 'score';
@@ -36,6 +30,7 @@ function setup() {
 
   width=displayWidth;
   height=displayHeight;
+
   createCanvas(width, height);
   frameRate(15);
   stroke(255);

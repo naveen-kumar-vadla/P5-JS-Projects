@@ -10,14 +10,9 @@ let height;
 function setup() {
   width=displayWidth;
   height=displayHeight;
+
   createCanvas(width, height);
   stroke(255);
-
-  goBackButton = createButton('Back');
-  goBackButton.position(20, 20);
-  goBackButton.id = 'goBack';
-  goBackButton.mousePressed(() => window.history.go(-1));
-  goBackButton.style('cursor', 'pointer');
 
   let radius = min(width, height) / 2;
   secondsRadius = radius * 0.75;

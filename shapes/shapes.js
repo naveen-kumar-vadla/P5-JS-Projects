@@ -2,12 +2,6 @@ function setup() {
   createCanvas(1000, 600);
   background(150);
 
-  goBackButton = createButton('Back');
-  goBackButton.position(20, 20);
-  goBackButton.id = 'goBack';
-  goBackButton.mousePressed(() => window.history.go(-1));
-  goBackButton.style('cursor', 'pointer');
-
   drawingContext.shadowOffsetX = 5;
   drawingContext.shadowOffsetY = -5;
   drawingContext.shadowBlur = 10;

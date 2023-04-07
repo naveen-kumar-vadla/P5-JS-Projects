@@ -9,12 +9,6 @@ function setup() {
   height=displayHeight;
   createCanvas(width, height);
 
-  goBackButton = createButton('Back');
-  goBackButton.position(20, 20);
-  goBackButton.id = 'goBack';
-  goBackButton.mousePressed(() => window.history.go(-1));
-  goBackButton.style('cursor', 'pointer');
-
   for (let layer = 1; layer <= 3; layer++) {
     for (let i = 0; i < 200; i++) {
       dots.push(new Dot(layer));

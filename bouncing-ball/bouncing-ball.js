@@ -10,12 +10,6 @@ function setup() {
   createCanvas(700, 700);
   background(220);
 
-  goBackButton = createButton('Back');
-  goBackButton.position(20, 20);
-  goBackButton.id = 'goBack';
-  goBackButton.mousePressed(() => window.history.go(-1));
-  goBackButton.style('cursor', 'pointer');
-
   x = random(0, width)
   y = random(0, height)
 

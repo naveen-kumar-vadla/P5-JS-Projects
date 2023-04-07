@@ -19,12 +19,6 @@ let earthIndex = 0;
 function setup() {
   createCanvas(width, height);
   textAlign(CENTER, CENTER);
-
-  goBackButton = createButton('Back');
-  goBackButton.position(20, 20);
-  goBackButton.id = 'goBack';
-  goBackButton.mousePressed(() => window.history.go(-1));
-  goBackButton.style('cursor', 'pointer');
 }
 
 function draw() {

@@ -169,12 +169,8 @@ class Sun {
 function setup() {
   width=displayWidth;
   height=displayHeight;
+
   createCanvas(width, height);
-  goBackButton = createButton('Back');
-  goBackButton.position(20, 20);
-  goBackButton.id = 'goBack';
-  goBackButton.mousePressed(() => window.history.go(-1));
-  goBackButton.style('cursor', 'pointer');
 }
 
 function draw_background_stars() {

@@ -28,8 +28,8 @@ function setup() {
   scoreElem.style('color', 'white');
   scoreElem.style('fontSize', '25px');
 
-  width=displayWidth;
-  height=displayHeight;
+  width=displayWidth - 100;
+  height=displayHeight - 200;
 
   createCanvas(width, height);
   frameRate(15);

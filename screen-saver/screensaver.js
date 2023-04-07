@@ -19,8 +19,8 @@ let width;
 let height;
 
 function setup() {
-  width=displayWidth;
-  height=displayHeight;
+  width=displayWidth - 100;
+  height=displayHeight - 200;
   createCanvas(width, height);
 
   startX = random(width);

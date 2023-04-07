@@ -16,8 +16,20 @@ class Position {
   }
 }
 
-const content_position = new Position(1500, 0);
-const center = new Position(width / 3, height / 2);
+let content_position;
+let center_of_screen;
+
+let sun;
+let mercury;
+let venus;
+let earth;
+let moon;
+let mars;
+let jupiter;
+let saturn;
+let uranus;
+let neptune;
+let pluto;
 
 class Planet {
   constructor(id, name, color, position, angle, speed, rotation, orbit_radius, planet_radius) {
@@ -38,7 +50,7 @@ class Planet {
     strokeWeight(1);
     noFill(WHITE);
     stroke(this.alpha_color);
-    circle(center.x, center.y, this.orbit_radius);
+    circle(center_of_screen.x, center_of_screen.y, this.orbit_radius);
   }
 
   draw_planet() {
@@ -50,8 +62,8 @@ class Planet {
   }
 
   compute_values() {
-    this.position.x = (+this.rotation * sin(this.angle)) + center.x;
-    this.position.y = (+this.rotation * cos(this.angle)) + center.y;
+    this.position.x = (+this.rotation * sin(this.angle)) + center_of_screen.x;
+    this.position.y = (+this.rotation * cos(this.angle)) + center_of_screen.y;
     this.angle = this.speed + this.angle;
   }
 
@@ -115,23 +127,23 @@ class Sun {
     strokeWeight(0.5);
     stroke(RED);
     for (let i = 1; i < 45; i += 4) {
-      line(center.x, center.y, center.x + cos(i) * 45, center.y + sin(i) * 45);
+      line(center_of_screen.x, center_of_screen.y, center_of_screen.x + cos(i) * 45, center_of_screen.y + sin(i) * 45);
     }
     stroke(YELLOW);
     for (let i = 2; i < 45; i += 2) {
-      line(center.x, center.y, center.x + cos(i) * 40, center.y + sin(i) * 40);
+      line(center_of_screen.x, center_of_screen.y, center_of_screen.x + cos(i) * 40, center_of_screen.y + sin(i) * 40);
     }
     stroke(ORANGE);
     for (let i = 3; i < 45; i += 4) {
-      line(center.x, center.y, center.x + cos(i) * 35, center.y + sin(i) * 35);
+      line(center_of_screen.x, center_of_screen.y, center_of_screen.x + cos(i) * 35, center_of_screen.y + sin(i) * 35);
     }
     noStroke();
     fill(YELLOW);
-    circle(center.x, center.y, 40);
+    circle(center_of_screen.x, center_of_screen.y, 40);
     fill(ORANGE);
-    circle(center.x, center.y, 35);
+    circle(center_of_screen.x, center_of_screen.y, 35);
     fill(RED);
-    circle(center.x, center.y, 30);
+    circle(center_of_screen.x, center_of_screen.y, 30);
   }
 
   draw_name() {
@@ -146,7 +158,7 @@ class Sun {
 
     //draw line between name and planet
     if (this.is_cursor_on_name()) {
-      line(center.x, center.y, this.name_position.x - 50, this.name_position.y - 5);
+      line(center_of_screen.x, center_of_screen.y, this.name_position.x - 50, this.name_position.y - 5);
     }
 
     //draw small line before name
@@ -166,13 +178,6 @@ class Sun {
   }
 }
 
-function setup() {
-  width=displayWidth;
-  height=displayHeight;
-
-  createCanvas(width, height);
-}
-
 function draw_background_stars() {
   //background -- stars
   strokeWeight(0);
@@ -183,17 +188,27 @@ function draw_background_stars() {
   }
 }
 
-const sun = new Sun(1, 'Sun');
-const mercury = new Planet(2, 'Mercury', '#FFA503', new Position(center.x, center.y), 47.87, 0.04787, 90, 180, 20);
-const venus = new Planet(3, 'Venus', '#FFD0AB', new Position(center.x, center.y), 35.02, 0.03502, 120, 240, 20);
-const earth = new Planet(4, 'Earth', '#01C896', new Position(center.x, center.y), 29.78, 0.02978, 170, 340, 25);
-const moon = new Moon(5, 'Moon', '#C8C8C8', new Position(earth.position.x, earth.position.y), 30.78, 0.07978, 350, 0, 10, earth.position);
-const mars = new Planet(6, 'Mars', '#D21D1D', new Position(center.x, center.y), 24.077, 0.024077, 210, 420, 19.5);
-const jupiter = new Planet(7, 'Jupiter', '#FF9890', new Position(center.x, center.y), 13.07, 0.01307, 320, 640, 30);
-const saturn = new Planet(8, 'Saturn', '#FFA596', new Position(center.x, center.y), 20, 0.00969, 370, 740, 30);
-const uranus = new Planet(9, 'Uranus', '#326496', new Position(center.x, center.y), 6.81, 0.00681, 420, 840, 20);
-const neptune = new Planet(10, 'Neptune', '#3264C8', new Position(center.x, center.y), 5.43, 0.00543, 440, 880, 16.8);
-const pluto = new Planet(11, 'Pluto', '#E6E6E6', new Position(center.x, center.y), 25.70, 0.0047, 470, 933, 16.7);
+function setup() {
+  width = displayWidth - 50;
+  height = displayHeight - 150;
+
+  content_position = new Position(1500, 0);
+  center_of_screen = new Position(width / 3, height / 2);
+
+  createCanvas(width, height);
+
+  sun = new Sun(1, 'Sun');
+  mercury = new Planet(2, 'Mercury', '#FFA503', new Position(center_of_screen.x, center_of_screen.y), 47.87, 0.04787, 90, 180, 20);
+  venus = new Planet(3, 'Venus', '#FFD0AB', new Position(center_of_screen.x, center_of_screen.y), 35.02, 0.03502, 120, 240, 20);
+  earth = new Planet(4, 'Earth', '#01C896', new Position(center_of_screen.x, center_of_screen.y), 29.78, 0.02978, 170, 340, 25);
+  moon = new Moon(5, 'Moon', '#C8C8C8', new Position(earth.position.x, earth.position.y), 30.78, 0.07978, 350, 0, 10, earth.position);
+  mars = new Planet(6, 'Mars', '#D21D1D', new Position(center_of_screen.x, center_of_screen.y), 24.077, 0.024077, 210, 420, 19.5);
+  jupiter = new Planet(7, 'Jupiter', '#FF9890', new Position(center_of_screen.x, center_of_screen.y), 13.07, 0.01307, 320, 640, 30);
+  saturn = new Planet(8, 'Saturn', '#FFA596', new Position(center_of_screen.x, center_of_screen.y), 20, 0.00969, 370, 740, 30);
+  uranus = new Planet(9, 'Uranus', '#326496', new Position(center_of_screen.x, center_of_screen.y), 6.81, 0.00681, 420, 840, 20);
+  neptune = new Planet(10, 'Neptune', '#3264C8', new Position(center_of_screen.x, center_of_screen.y), 5.43, 0.00543, 440, 880, 16.8);
+  pluto = new Planet(11, 'Pluto', '#E6E6E6', new Position(center_of_screen.x, center_of_screen.y), 25.70, 0.0047, 470, 933, 16.7);
+}
 
 function draw() {
   background(0);

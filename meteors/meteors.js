@@ -5,8 +5,8 @@ let width;
 let height;
 
 function setup() {
-  width=displayWidth;
-  height=displayHeight;
+  width=displayWidth - 100;
+  height=displayHeight - 200;
   createCanvas(width, height);
 
   for (let layer = 1; layer <= 3; layer++) {

@@ -1,14 +1,18 @@
 let x;
 let y;
+let ballImage;
 
-const radius = 20;
+const radius = 50;
 
 let deltaX;
 let deltaY;
 
+function preload() {
+  ballImage = loadImage('./foot-ball.png');
+}
+
 function setup() {
   createCanvas(700, 700);
-  background(220);
 
   x = random(0, width)
   y = random(0, height)
@@ -18,14 +22,13 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background('green');
 
-  circle(x, y, radius);
+  image(ballImage, x, y, radius, radius);
+
+  if(x <= 0 || x >= width - radius) deltaX *= -1;
+  if(y <= 0 || y >= height - radius) deltaY *= -1;
 
   x += deltaX;
   y += deltaY;
-
-
-  if(x < 0 || x > width) deltaX *= -1;
-  if(y < 0 || y > height) deltaY *= -1;
 }

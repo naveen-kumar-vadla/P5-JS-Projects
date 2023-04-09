@@ -26,7 +26,7 @@ function setup() {
   height=displayHeight - 200;
 
   scoreElem = createDiv('Score = 0');
-  scoreElem.position(width, 20);
+  scoreElem.position(25, 25);
   scoreElem.id = 'score';
   scoreElem.style('color', 'white');
   scoreElem.style('fontSize', '25px');
